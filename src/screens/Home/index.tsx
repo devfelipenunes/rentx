@@ -47,6 +47,10 @@ export function Home() {
     };
   });
 
+  function handleOpenMyCars() {
+    navigation.navigate("MyCars");
+  }
+
   const onGestureEvent = useAnimatedGestureHandler({
     onStart(_, ctx: any) {
       ctx.positionX = positionX.value;
@@ -124,6 +128,7 @@ export function Home() {
           ]}
         >
           <ButtonAnimated
+            onPress={handleOpenMyCars}
             style={[styles.button, { backgroundColor: theme.colors.main }]}
           >
             <Ionicons

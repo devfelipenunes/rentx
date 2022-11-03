@@ -10,7 +10,7 @@ import {
 } from "react-native-calendars";
 import { useTheme } from "styled-components";
 
-LocaleConfig.locales["pt-BR"] = ptBR;
+LocaleConfig.locales["pt-br"] = ptBR;
 LocaleConfig.defaultLocale = "pt-br";
 
 interface MarkedDateProps {
@@ -28,11 +28,6 @@ interface DayProps {
   month: number;
   year: number;
   timestamp: number;
-}
-
-interface CalendarProps {
-  markedDates: MarkedDateProps;
-  onDayPress: CalendarProps;
 }
 
 function Calendar({ markedDates, onDayPress }: CalendarProps) {
@@ -62,12 +57,12 @@ function Calendar({ markedDates, onDayPress }: CalendarProps) {
         },
       }}
       firstDay={1}
-      minDate={new Date()}
+      minDate={new Date().toString()}
       markingType="period"
       markedDates={markedDates}
-      // onDayPress={onDayPress}
+      onDayPress={onDayPress}
     />
   );
 }
 
-export { Calendar, MarkedDateProps, DayProps };
+export { Calendar, MarkedDateProps, DayProps, generateInterval };
